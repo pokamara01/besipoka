@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XML URL Viewer</title>
+</head>
+<body>
+  <h2>XML URL Viewer</h2>
+  <pre id="result">Loading...</pre>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id") || "";
+    let xml = params.get("xml") || "";
+
+    try {
+      if (xml.startsWith("data:")) {
+        const base64 = xml.slice(xml.indexOf(",") + 1)
+          .replace(/ /g, "+");
+
+        xml = decodeURIComponent(
+          Array.from(atob(base64), c =>
+            "%" + c.charCodeAt(0).toString(16).padStart(2, "0")
+          ).join("")
+        );
+      }
+
+      document.getElementById("result").textContent =
+        "ID: " + id + "\n\nXML:\n" + xml;
+    } catch (error) {
+      document.getElementById("result").textContent =
+        "XML parameter could not be decoded.";
+    }
+  </script>
+</body>
+</html>
