@@ -1,11 +1,18 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<Connector>
-  <Error number="0" />
-  <CurrentFolder path="/" url="/" />
-  <Folders />
-  <Files>
-    <File name="index.html" size="0" />
-    <File name="rename.html" size="0" />
-  </Files>
+<Connector command="GetFoldersAndFiles" resourceType="File">
+    <CurrentFolder
+        path="/"
+        url="https://pokamara01.github.io/besipoka/" />
+    <Error number="0" />
+    <Folders />
+    <Files>
+        <File
+            name="b.xml"
+            size="1"
+            url="https://pokamara01.github.io/besipoka/b.xml" />
+        <File
+            name="connector.xml"
+            size="1"
+            url="https://pokamara01.github.io/besipoka/connector.xml" />
+    </Files>
 </Connector>
